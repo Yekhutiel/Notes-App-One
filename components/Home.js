@@ -4,6 +4,7 @@ import {Text, View} from 'react-native';
 // components
 import Header from "./Header.js"
 import ListItems from './ListItems.js';
+import InputModal from './InputModal.js'
 
 const Home = () => {
 
@@ -33,12 +34,24 @@ const Home = () => {
         setTodos([]);
     }
 
+    // Modal visibility
+    const [modalVisible, setModalVisible] = useState(false);
+    const [todoInputValue, setTodoInputValue] = useState();
+
+
     return (
         <>
             <Header handleClearTodos={handleClearTodos}/>
             <ListItems
                 todos={todos}
                 setTodos={setTodos} 
+            />
+
+            <InputModal
+                modalVisible={modalVisible}
+                setModalVisible={setModalVisible}
+                todoInputValue={todoInputValue}
+                setTodoInputValue={setTodoInputValue}
             />
         </>
         
